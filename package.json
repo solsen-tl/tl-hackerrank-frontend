@@ -1,0 +1,53 @@
+{
+  "private": true,
+  "name": "tl-hackerrank-frontend",
+  "version": "0.1.0",
+  "license": "none",
+  "scripts": {
+    "build": "preact build",
+    "serve": "sirv build --port 8000 --cors --single",
+    "start": "preact watch --port 8000",
+    "lint": "eslint src && prettier --write src",
+    "test": "rm junit.xml && jest --testResultsProcessor ./node_modules/jest-junit"
+  },
+  "devDependencies": {
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-preact-pure": "^2.0.0",
+    "eslint": "^7.15.0",
+    "eslint-config-preact": "^1.1.0",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.21.5",
+    "husky": "^4.3.4",
+    "jest": "^24.9.0",
+    "jest-junit": "^12.0.0",
+    "jest-preset-preact": "^1.0.0",
+    "lint-staged": "^10.5.3",
+    "preact-cli": "^3.0.0",
+    "prettier": "2.2.1",
+    "sirv-cli": "1.0.3"
+  },
+  "dependencies": {
+    "preact": "~10.3.2",
+    "preact-render-to-string": "~5.1.4",
+    "preact-router": "~3.2.1"
+  },
+  "jest": {
+    "preset": "jest-preset-preact",
+    "setupFiles": [
+      "<rootDir>/tests/__mocks__/browserMocks.js",
+      "<rootDir>/tests/__mocks__/setupTests.js"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  }
+}
